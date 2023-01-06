@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "coutde-pouce": {
+      "hosting": {
+        "mdb-angular-ui-kit-free": [
+          "coutde-pouce"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "coutde-pouce"
+  }
+}

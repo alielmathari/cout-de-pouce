@@ -1,0 +1,70 @@
+<h1 style="text-align: center;" class="mt-5">ajouter un produit</h1>
+
+
+<div class="container ">
+    <form class="form" [formGroup]="productForm" (ngSubmit)="onSubmitproductrForm()" >
+      <input type="number" formControlName="index" hidden>
+        <!-- Email input -->
+        <div class="  mb-4">
+            <label class="form-label" >titre</label>
+          <input type="text" id="form1Example1" class="form-control" formControlName="titre" />
+        </div>
+      
+        <!-- Password input -->
+        <div class=" form mb-4">
+            <label class="form-label" >desciption</label>
+          <input type="text" id="form1Example1" class="form-control" formControlName="description" />
+        </div>
+        <div class=" form mb-4">
+            <label class="form-label" >prix</label>
+          <input type="text" id="form1Example1" class="form-control" formControlName="prix" />
+        </div>
+        <div class=" form mb-4">
+            <label class="form-label" >lien image</label>
+          <input type="text" id="form1Example1" class="form-control" formControlName="imgUrl" />
+        </div>
+         
+      
+       
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="productForm.invalid">ajouter au site</button>
+      </form>
+    </div>
+
+<h1 style="text-align: center;" class="mt-5">annonces ajouter récemment</h1>
+
+    <table class="table mt-5 shadow" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">titre</th>
+          <th scope="col">desciption</th>
+          <th scope="col">prix</th>
+          <th scope="col">lienImage</th>
+          <th scope="col">operations</th>
+
+          
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let prod of products; let i = index ">
+
+<th>{{i}}</th>
+<td>{{prod.titre}}</td>
+<td>{{prod.description}}</td>
+<td>{{prod.prix | currency:'EUR' }}</td>
+<td> <img class="img-responsive" width="20%"  src="{{prod.imgUrl}}">  </td>
+<td><button class="btn btn-primary" (click)="onEditProduct(prod)"> edit</button></td>
+<td><button class="btn btn-danger" (click)="onDeleteProduct(prod.id)"> delete</button></td>
+
+
+
+
+
+      </tr>
+      
+      </tbody>
+    </table>
+
+
